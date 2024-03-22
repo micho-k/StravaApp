@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block cssFiles %}
+<link rel='stylesheet' href= "{% static "StravaChallengesApp/y5kResultsPage.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<h1>y5k - ranking uczestników</h1>
+
+
+<br>
+
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script id='graph'>
+    const ctx = document.getElementById('myChart');
+    Chart.defaults.font.size = 24;
+    Chart.defaults.font.color = 'black';
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: {{athletes_list|safe}},
+        datasets: [{
+          barPercentage: 0.5,
+          categoryPercentage: 0.9,
+          backgroundColor: {{colors_list|safe}},
+          label: 'ile przebytych km od początku roku',
+          data: {{athletes_distance|safe}},
+          borderWidth: 5,
+          borderRadius: 10,
+          borderColor: ['darkorange']
+        }]
+      },
+      options: {
+        responsive: true ,
+        indexAxis: 'y',
+        scales: {
+          y: {
+            beginAtZero: true,
+            stepSize: 1,
+            ticks: {
+              padding: 50,
+            }
+          },
+          x: {
+            beginAtZero: true,
+            suggestedMax: 5000,
+          }
+        }
+      }
+    });
+  </script>
+
+  <br>
+
+<table id="table">
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>Suma km</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for athlete in athletes %}
+          <tr>
+              <td id="photo-of-athlete"><img src="{{ athlete.photo_medium_url }}" alt="" class="athlete-photo"></td>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ athlete.firstname }}</td>
+              <td>{{ athlete.lastname }}</td>
+              <td>{{ athlete.total_ytd_distance }}</td>
+          </tr>
+      {% endfor %}
+  </tbody>
+</table>
+  <br>
+  <h1 id="details">y5k - wyniki szczegółowe</h1>
+  <br>
+<table id="table">
+  <thead>
+      <tr>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>Suma km</th>
+          <th>Rower</th>
+          <th>Spacer</th>
+          <th>Bieganie</th>
+          <th>Pływanie</th>
+          <th>Narty</th>
+          <th>Stan na</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for athlete in athletes %}
+          <tr>
+              <td>{{ athlete.firstname }}</td>
+              <td>{{ athlete.lastname }}</td>
+              <td>{{ athlete.total_ytd_distance }}</td>
+              <td>{{ athlete.ride_ytd_distance }}</td>
+              <td>{{ athlete.walk_ytd_distance }}</td>
+              <td>{{ athlete.run_ytd_distance }}</td>
+              <td>{{ athlete.swim_ytd_distance }}</td>
+              <td>{{ athlete.ski_ytd_distance }}</td>
+              <td>{{ athlete.last_modified }}</td>
+          </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+<h1>y5k - ranking uczestników - ważony wysiłkiem*</h1>
+
+<br>
+<div>
+  <canvas id="myChart2"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script id='graph2'>
+  const ctx2 = document.getElementById('myChart2');
+  Chart.defaults.font.size = 24;
+  Chart.defaults.font.color = 'black';
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: {{athletes_list_corrected|safe}},
+      datasets: [{
+        barPercentage: 0.5,
+        categoryPercentage: 0.9,
+        backgroundColor: {{colors_list|safe}},
+        label: 'ile przebytych km od początku roku',
+        data: {{athletes_distance_corrected|safe}},
+        borderWidth: 5,
+        borderRadius: 10,
+        borderColor: ['darkorange']
+      }]
+    },
+    options: {
+      responsive: true ,
+      indexAxis: 'y',
+      scales: {
+        y: {
+          beginAtZero: true,
+          stepSize: 1,
+          ticks: {
+            padding: 50,
+          }
+        },
+        x: {
+          beginAtZero: true,
+          suggestedMax: 5000,
+        }
+      }
+    }
+  });
+</script>
+
+<br>
+<br>
+<h1 id="details">y5k - wyniki szczegółowe</h1>
+<br>
+<table id="table2">
+<thead>
+    <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Suma km</th>
+        <th>Rower</th>
+        <th>Spacer</th>
+        <th>Bieganie</th>
+        <th>Pływanie</th>
+        <th>Narty</th>
+        <th>Stan na</th>
+    </tr>
+</thead>
+<tbody>
+    {% for athlete_id, details in corrected_distance.items %}
+        <tr>
+            <td>{{ details.0 }}</td>
+            <td>{{ details.1 }}</td>
+            <td>{{ details.2 }}</td>
+            <td>{{ details.3 }}</td>
+            <td>{{ details.4 }} </td>
+            <td>{{ details.5 }}</td>
+            <td>{{ details.6 }}</td>
+            <td>{{ details.7 }}</td>
+            <td>{{ details.8 }}</td>
+        </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+<br>
+<h2> *Ranking ważony jest średnim potrzebnym spalaniem kalorii - 1km rowerem przemnożony wg wskaźników poniżej</h2>
+<table id='przelicznik'>
+<thead>    
+  <tr>
+      <th>Ile kalorii na 1h wysiłku</th>
+      <th>Cal/Km</th>
+      <th>Ile vs. Rower</th>
+  </tr>
+<thead>
+  <tbody>
+        <tr>
+            <td>1h bieganie (9km/h) distance = 9km, 760cal</td>
+            <td>84</td>
+            <td>2,53</td>
+        </tr>
+        <tr>
+            <td>1h rowerem (24km/h) distance = 24km, 800cal</td>
+            <td>33</td>
+            <td>1,00</td>
+        </tr>
+        <tr>
+            <td>1h spacerem (5km/h) distance = 5km, 280cal</td>
+            <td>56</td>
+            <td>1,68</td>
+        </tr>
+        <tr>
+            <td>1h jazda na nartach (40km/h), distance = 40km, 580cal</td>
+            <td>15</td>
+            <td>0,44</td>
+        </tr>
+        <tr>
+            <td>1h pływania (4km/h), distance = 4km, 664cal</td>
+            <td>166</td>
+            <td>4,98</td>
+        </tr>
+</tbody>
+</table>
+
+<br>
+
+
+{% endblock content %}

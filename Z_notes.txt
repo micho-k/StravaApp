@@ -1,0 +1,39 @@
+Ideas for v 1.1.
+    Cookie based selection of a logged athlete (highlight their stats and graphs)
+    Fixes: Snowboard (DONER), Hike? (activity name to be added)
+    Fixes: detect phone resolution and change the font sizes to large, and keep em smaller for PCs
+
+
+Ideas for v 2.0
+    Individual athlete page (month by month graph, ranking current and month by month, stacked graph, photo) - cookie based
+    Permament update of data from Strava (store credentials in database)
+    Messagaging with results, update's if smb overtook you/ long inactive, etc (a monthtly mail?) - need to collect mails (newsletter)
+    Comments Forms (dicusion/ updates)
+    How to make it readible with 30+/100+ participants?
+    Stock monthly updates and do not re-download them
+
+Ideas for v 3.0
+    Make an adroid/iphone application
+    Make a topx prizes for achieving results? (shirts, bike shirts, diplomas, beer, meeting)?
+
+PARIKING:
+    A month by month graph - DISCARDED ( - it might be ok for an indivitual atheete)
+    A stacked graph/ make graph more legible on small screen - DISCARDED for totals (not legible) - might be ok for individual graphs
+
+Przelicznik (80kg):
+1h bieganie (9km/h) distance = 9km, 760kcal,
+1h rowerem (24km/h) distance = 24km, 800kcal
+1h spacerem (5km/h) distance = 5km, 280kcal
+1h jazda na nartach (40km/h), distance = 40km, 580kcal
+1h pływania (4km/h), distance = 4km, 664kcal
+
+
+Release v 1.10
+Fixes: larger right margin, still larger fonts, menu bar with white shadow - DONE
+?km multiplier by sport (weighted by calories? KJ) ?
+Fixes: VirtualRide
+
+Release v 1.11
+    Download athlete pictures and show them on webpage (how?/where?) - DONE
+    Counter - total number of paricipants and number of a given one - DONE
+    Favicon - implement - DONE

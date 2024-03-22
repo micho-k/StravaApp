@@ -1,0 +1,28 @@
+
+{% load static %}
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A web page linked to Strava with 5000 km a year outdoor challenge">
+    <title> {% block PageTitle %} Y5K - 5000km rocznie {% endblock %}</title>
+    <link rel="icon" href="{% static 'StravaChallengesApp/images/favicon.ico' %}" type="image/x-icon">
+    <link rel='stylesheet' href="{% static "styles.css" %}">
+    {% block cssFiles %}{% endblock %}
+</head>
+
+<header>
+    <nav> <a href="{% url "main_page" %}" id="logo"><img src="{% static 'StravaChallengesApp/images/Y5K logo.jpg' %}" alt="Homepage Logo"></a> </nav>    
+        <nav class='right-nav'>
+            <a href="{% url "main_page" %}">y5k - info</a> 
+            <a href="{% url "y5k_results_page" %}">y5k - wyniki</a>
+            <a href="/login">Strava - odśwież dane</a>
+        </nav>        
+</header>
+<br> <br>
+<body>
+{% block content %} {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block cssFiles %}
+<link rel='stylesheet' href= "{% static "StravaChallengesApp/confirmationPage.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<h1>Uff. Udało się nam zalogować do Twojego konta Strava</h1>
+<br>
+<p> Kliknij poniższy link i poczekaj chwilę na załadowanie danych <p>
+<br>
+<section id='update'>
+    <a href="{% url "get_athlete_and_stats" %}">Pobierz moje dane ze Strava do zestawienia y5k</a>
+</section>
+<br>
+
+{% endblock content %}

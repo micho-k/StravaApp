@@ -1,0 +1,16 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "window.zoomLevel": 0,
+    "files.associations": {
+        "*.html": "django-html"
+    },
+    "[django-html]": {
+    
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": true,
+            "strings": true
+        }
+    },
+    "python.analysis.typeCheckingMode": "basic"
+}

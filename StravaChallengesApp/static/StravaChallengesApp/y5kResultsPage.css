@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+h2 {
+    text-align: center;
+    font-size:  1.5rem;
+}
+
+table {
+    font-size: 2rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: 1rem;
+
+}
+
+#table, #table2 td, th{
+    text-align: left;
+    background-color: white;
+}
+
+#details {
+    background-color: orange;
+}
+
+#przelicznik {
+    font-size: 1.3rem;
+    text-align: left;
+    background-color: lightgray;
+}
+
+
+/* Style for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 800px) {
+
+table {
+    font-size: 1.5rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+}

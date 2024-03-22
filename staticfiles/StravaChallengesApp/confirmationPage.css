@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#update {
+    text-align: center;
+}
+
+#update a {
+    color: darkorange;
+    text-shadow:2px 2px 7px rgba(0, 0, 0, 0.295);
+    font-size: 1.3rem;
+    text-decoration: none;    
+    padding: 5px 10px;
+    border-radius: 1rem;
+    background-color: rgb(236, 236, 236);
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+#update a:hover {
+    color: #007bff; /* Change color on hover */
+    font-weight: bolder;
+}
