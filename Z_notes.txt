@@ -1,7 +1,8 @@
 Ideas for v 1.1.
     Cookie based selection of a logged athlete (highlight their stats and graphs)
-    Fixes: Snowboard (DONER), Hike? (activity name to be added)
+    Fixes: Snowboard (DONE), Hike? (activity name to be added)
     Fixes: detect phone resolution and change the font sizes to large, and keep em smaller for PCs
+
 
 
 Ideas for v 2.0
@@ -37,3 +38,11 @@ Release v 1.11
     Download athlete pictures and show them on webpage (how?/where?) - DONE
     Counter - total number of paricipants and number of a given one - DONE
     Favicon - implement - DONE
+
+Release v 1.12
+    Store athlete Id & name in session. Session validity set to 1 year.
+    Highlight current athlete with red font
+    Highlight current athlete with red border on graphs
+    Highlight athletes with 5000K+ with green bar on graph
+    Changed menu font letters to white
+    Added strava buttons & powered by Strava

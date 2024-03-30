@@ -17,10 +17,14 @@
         <nav class='right-nav'>
             <a href="{% url "main_page" %}">y5k - info</a> 
             <a href="{% url "y5k_results_page" %}">y5k - wyniki</a>
-            <a href="/login">Strava - odśwież dane</a>
+            <a href="/login" id="connect_strava"><img src="{% static 'StravaChallengesApp/images/btn_strava_connectwith_orange.png' %}" alt="Homepage Logo"></a>
         </nav>        
 </header>
-<br> <br>
+<br> 
+<br> 
+<br> 
+<img src="{% static 'StravaChallengesApp/images/api_logo_pwrdBy_strava_horiz_light.png' %}" alt="Homepage Logo" class="pwd_by_Strava">
+<br>
 <body>
 {% block content %} {% endblock %}
 </body>

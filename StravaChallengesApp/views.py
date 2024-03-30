@@ -159,6 +159,11 @@ def get_athlete_and_stats(request):
         
         totalDistance = sum(activitySummary.values())
         
+        # Store Athlete data in session cookie
+        request.session['athlete_id_cookie'] = athlete_id_fetched
+        request.session['athlete_firstname_cookie'] = firstname_fetched
+        request.session['athlete_lastname_cookie'] = lastname_fetched
+        
         # Store Athlete data in database
         try:  
             current_athlete = Athlete.objects.get(athlete_id = athlete_id_fetched) #check if athlete in datasbase positivie = saving activity only
@@ -202,6 +207,7 @@ def y5k_results_page(request):
     athletes_list = []
     athletes_distance = []
     colors_list = []
+    border_colors_list = []
     corrected_distance = {}
     
     
@@ -223,8 +229,14 @@ def y5k_results_page(request):
         ski = int(data.ski_ytd_distance*0.44)        
         newTotalYtdDistance = walk+run+swim+ski+int(data.ride_ytd_distance)        
         corrected_distance[data.athlete_id] = [data.firstname, data.lastname, newTotalYtdDistance, data.ride_ytd_distance, walk, run, swim, ski, data.last_modified]
-        colors_list.append('orange') #this is used for now as a placholder, in the future = to use to differentia by color the currently logged athlete (cookie?)
-    
+        if newTotalYtdDistance >= 5000:
+            colors_list.append('green')
+        else:
+            colors_list.append('orange')
+        if data.athlete_id == str(request.session.get('athlete_id_cookie')):
+            border_colors_list.append('red')
+        else:
+            border_colors_list.append('darkorange')
     
     corrected_distance_sorted = dict(sorted(corrected_distance.items(), key=lambda item: item[1][2], reverse=True))
     #print(corrected_distance_sorted)
@@ -243,15 +255,20 @@ def y5k_results_page(request):
         #except:
     
     MONTHS_LIST = ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Grudzień']
- 
+    
+    
     return render(request, 'StravaChallengesApp/y5kResultsPage.html',{
         'athletes': athletes,
         'activities': activities,
         'athletes_list': athletes_list,
         'athletes_distance': athletes_distance,
         'colors_list': colors_list,
+        'border_colors_list': border_colors_list,
         'athletes_list_corrected': athletes_list_corrected,
         'athletes_distance_corrected': athletes_distance_corrected,
         'corrected_distance': corrected_distance_sorted,
         'months_list': MONTHS_LIST,
+        'athlete_firstname_cookie' : request.session.get('athlete_firstname_cookie', ' '),
+        'athlete_lastname_cookie' : request.session.get('athlete_lastname_cookie', ' '),
+        'athlete_id_cookie' : str(request.session.get('athlete_id_cookie', ' nieznajomy(a) '))
     })

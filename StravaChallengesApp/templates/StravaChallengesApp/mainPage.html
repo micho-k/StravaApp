@@ -20,11 +20,12 @@
 <h2>Jak dołączyć?</h2>
     <p>Potrzebujesz mieć zainstalowaną aplikację <a href="https://www.strava.com" target="_blank" class="strava-link">Strava</a>. 
     Jeżeli korzystasz z Garmina - to <a href="https://www.youtube.com/watch?v=CbuysWzB4bs" target="_blank" class="yt-link"> TUTAJ</a> 
-    jest film jak połączyć Garmin ze Strava. Twoich danych używamy do rankingu (niczego innego). Możesz również  zobaczyć wyniki bez logowania. Decyduj poniżej:</p>
+    jest film jak połączyć Garmin ze Strava. Twoich danych używamy do rankingu (niczego innego). Chcesz dołączyć lub odświeżyć dane - wciśnij "Connect with Strava". 
+    Możesz również  zobaczyć wyniki bez logowania. Decyduj. </p>
     
 <section id='links'>
-    <a href="/login">Chcę dołączyć - zaloguj mnie do Strava</a>
-    <a href="{% url "y5k_results_page" %}">Chcę zobaczyć wyniki - nie loguj mnie do Strava</a>
+    <a href="/login" id="connect_strava"><img src="{% static 'StravaChallengesApp/images/btn_strava_connectwith_orange_large.png' %}" alt="Homepage Logo"></a>
+    <a href="{% url "y5k_results_page" %}">Zobacz wyniki bez logowania</a>
 </section>
     <br>
 
@@ -32,7 +33,7 @@
     <h2>Jakie aktywności się liczą?</h2>
     <p>Chodzi o ruch na świeżym powietrzu – także w miarę wszystko wliczamy: rower, spacer, bieganie, narty, windusrfing, kajaki, pływanie. Od biedy trenażer też ok.</p>
 </section>
-<section id='email'>
+<section id='links'>
     <a href='mailto:megamicho@wp.pl'> Powinniśmy dodać jakąś aktywność? Napisz do nas </a>
 </section>
 

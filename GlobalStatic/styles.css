@@ -56,8 +56,8 @@ header a {
 }
 
 .right-nav a {
-    color: darkorange;
-    text-shadow:2px 2px 4px rgb(255, 255, 255)
+    color: rgb(231, 213, 192);
+    text-shadow:2px 2px 4px orange
 }
 
 header nav a {
@@ -69,6 +69,12 @@ header nav a {
 header nav a:hover {
     color: #007bff; /* Change color on hover */
     font-weight: bolder;
+}
+
+
+
+.pwd_by_Strava {
+    float: right;
 }
 
 @media screen and (max-width: 800px) {

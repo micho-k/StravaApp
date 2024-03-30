@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-
+<h2 class = "current_athlete"> Witaj {{athlete_firstname_cookie}} :) </h2>
 <h1>y5k - ranking uczestników</h1>
 
 
@@ -34,7 +34,7 @@
           data: {{athletes_distance|safe}},
           borderWidth: 5,
           borderRadius: 10,
-          borderColor: ['darkorange']
+          borderColor: {{border_colors_list|safe}}
         }]
       },
       options: {
@@ -63,7 +63,6 @@
   <thead>
       <tr>
           <th></th>
-          <th></th>
           <th>Imię</th>
           <th>Nazwisko</th>
           <th>Suma km</th>
@@ -71,8 +70,7 @@
   </thead>
   <tbody>
       {% for athlete in athletes %}
-          <tr>
-              <td id="photo-of-athlete"><img src="{{ athlete.photo_medium_url }}" alt="" class="athlete-photo"></td>
+          <tr class="{% if athlete.athlete_id == athlete_id_cookie %}current_athlete{% endif %}">
               <td>{{ forloop.counter }}</td>
               <td>{{ athlete.firstname }}</td>
               <td>{{ athlete.lastname }}</td>
@@ -100,7 +98,7 @@
   </thead>
   <tbody>
       {% for athlete in athletes %}
-          <tr>
+          <tr class="{% if athlete.athlete_id == athlete_id_cookie %}current_athlete{% endif %}">
               <td>{{ athlete.firstname }}</td>
               <td>{{ athlete.lastname }}</td>
               <td>{{ athlete.total_ytd_distance }}</td>
@@ -140,7 +138,7 @@
         data: {{athletes_distance_corrected|safe}},
         borderWidth: 5,
         borderRadius: 10,
-        borderColor: ['darkorange']
+        borderColor: {{border_colors_list|safe}}
       }]
     },
     options: {
@@ -183,7 +181,7 @@
 </thead>
 <tbody>
     {% for athlete_id, details in corrected_distance.items %}
-        <tr>
+        <tr class="{% if athlete_id == athlete_id_cookie %}current_athlete{% endif %}">
             <td>{{ details.0 }}</td>
             <td>{{ details.1 }}</td>
             <td>{{ details.2 }}</td>

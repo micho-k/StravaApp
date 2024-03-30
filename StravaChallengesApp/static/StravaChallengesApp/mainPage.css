@@ -18,20 +18,26 @@ p {
     width: fit-content;
 }
 
-#links, #email {
+#links {
     display: flex; 
     gap: 70px; /* Adjust the gap between nav items */
-    justify-content: center /* Align nav items to the right */
+    justify-content: center; /* Align nav items to the right */
+    align-items: center
 }
 
-#links a, #email a {
-    color: rgb(197, 78, 22);
-    text-shadow:3px 3px 7px rgb(253, 251, 251);
+#connect_strava a {
+    background-color: white;
+    padding: 0%;
+}
+
+#links a {
+    color: white;
     font-size: 2.2rem;
     text-decoration: none;
-    padding: 1px 1px;
+    font-weight: bold;
+    padding: 10px 20px;
     border-radius: 1rem;
-    background-color: rgb(236, 236, 236);
+    background-color: orange;
 }
 
 #links a:hover, #email a:hover {
