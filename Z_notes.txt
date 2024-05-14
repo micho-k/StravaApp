@@ -1,14 +1,11 @@
-Ideas for v 1.1.
-    Cookie based selection of a logged athlete (highlight their stats and graphs)
-    Fixes: Snowboard (DONE), Hike? (activity name to be added)
-    Fixes: detect phone resolution and change the font sizes to large, and keep em smaller for PCs
-
-
+Ideas for v 1.2.
+    Hall of fame - all timers, given year
+    
 
 Ideas for v 2.0
-    Individual athlete page (month by month graph, ranking current and month by month, stacked graph, photo) - cookie based
-    Permament update of data from Strava (store credentials in database)
     Messagaging with results, update's if smb overtook you/ long inactive, etc (a monthtly mail?) - need to collect mails (newsletter)
+    Individual athlete page (month by month graph, ranking current and month by month, stacked graph, photo, runrate for 5k) - cookie based
+    Permament update of data from Strava (store credentials in database)
     Comments Forms (dicusion/ updates)
     How to make it readible with 30+/100+ participants?
     Stock monthly updates and do not re-download them
@@ -17,9 +14,10 @@ Ideas for v 3.0
     Make an adroid/iphone application
     Make a topx prizes for achieving results? (shirts, bike shirts, diplomas, beer, meeting)?
 
-PARIKING:
+PARKING:
     A month by month graph - DISCARDED ( - it might be ok for an indivitual atheete)
     A stacked graph/ make graph more legible on small screen - DISCARDED for totals (not legible) - might be ok for individual graphs
+    Fixes: detect phone resolution and change the font sizes to large, and keep em smaller for PCs - discarded, as phone seems to be primary source
 
 Przelicznik (80kg):
 1h bieganie (9km/h) distance = 9km, 760kcal,
@@ -46,3 +44,8 @@ Release v 1.12
     Highlight athletes with 5000K+ with green bar on graph
     Changed menu font letters to white
     Added strava buttons & powered by Strava
+
+Release v1.13
+    Fixes: Hike (activity name to be added) 
+    Fixes: Take out the left side bar - done
+    Fixes: confirmation page button formatting change - done

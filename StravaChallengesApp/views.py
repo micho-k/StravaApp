@@ -109,7 +109,7 @@ def get_athlete_and_stats(request):
             return HttpResponse(f'Error fetching activities: Status code {response.status_code}, Response content: {response.text}')
     
     #creating a dictionary and counter for outdoor activities
-    OUTDOOR_ACTIVITIES_TYPES = ["Walk", "Ride", "AlpineSki", "Swim", "Run", "VirtualRide", "Snowboard"]
+    OUTDOOR_ACTIVITIES_TYPES = ["Walk", "Ride", "AlpineSki", "Swim", "Run", "VirtualRide", "Snowboard", "Hike"]
     activitySummary = dict()
     for acType in OUTDOOR_ACTIVITIES_TYPES:
         activitySummary[acType] = 0
@@ -170,7 +170,7 @@ def get_athlete_and_stats(request):
             current_athlete.total_ytd_distance = int(totalDistance/1000)
             current_athlete.ride_ytd_distance = int(activitySummary['Ride']/1000)+int(activitySummary['VirtualRide']/1000)
             current_athlete.run_ytd_distance = int(activitySummary['Run']/1000)
-            current_athlete.walk_ytd_distance = int(activitySummary['Walk']/1000)
+            current_athlete.walk_ytd_distance = int(activitySummary['Walk']/1000)+int(activitySummary['Hike']/1000)
             current_athlete.swim_ytd_distance = int(activitySummary['Swim']/1000)
             current_athlete.ski_ytd_distance = int(activitySummary['AlpineSki']/1000)+int(activitySummary['Snowboard']/1000)
             current_athlete.save()
@@ -191,7 +191,7 @@ def get_athlete_and_stats(request):
                                           total_ytd_distance = int(totalDistance/1000),
                                           ride_ytd_distance = int(activitySummary['Ride']/1000)+int(activitySummary['VirtualRide']/1000),
                                           run_ytd_distance = int(activitySummary['Run']/1000),
-                                          walk_ytd_distance = int(activitySummary['Walk']/1000),
+                                          walk_ytd_distance = int(activitySummary['Walk']/1000)+int(activitySummary['Hike']/1000),
                                           swim_ytd_distance = int(activitySummary['Swim']/1000),
                                           ski_ytd_distance = int(activitySummary['AlpineSki']/1000)+int(activitySummary['Snowboard']/1000))
             

@@ -13,7 +13,7 @@ p {
     text-align: center;
 }
 
-#intro, #whatCounts {
+#intro, #data {
     background-color: orange;
     width: fit-content;
 }

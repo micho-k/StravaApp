@@ -3,36 +3,32 @@
 
 html {
     font-family: 'Roboto Condensed', sans-serif;
-    background-image: url('StravaChallengesApp/images/side-picture-thin.jpg');
-    background-size: 7% auto; /* Image width covers 15% of the viewport, height covers the entire viewport */
-    background-repeat: repeat-y;
-    background-position: left;
     }
 
 
 body {
     margin-top: 3rem;
-    margin-left: 4rem;
+    margin-left: 2rem;
     margin-right: 2rem;
-    width: 88%;
-    align-items: end;
+    width: 95%;
+    align-items: center;
     }
 
 header {
     background-color: rgb(255, 255, 255); /* Adjust the background color as needed */
     background-image: url('StravaChallengesApp/images/background.jpg');
-    background-position: left;
+    background-position: center;
     margin:auto;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 93%;
+    width: 95%;
     height: 65px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.295); /* Add a shadow: offsetX offsetY blurRadius color */
     position: fixed;
-    top: 0;
-    left: 1rem;
+    top: 0.2rem;
+    right: 0.2rem;
     border-radius: 10px;
 }
 
@@ -50,14 +46,16 @@ header a {
 
 .right-nav {
     display: flex; 
-    gap: 40px; /* Adjust the gap between nav items */
+    gap: 60px; /* Adjust the gap between nav items */
     justify-content: flex-end; /* Align nav items to the right */
     padding-right: 2rem;
+    align-items: center;
 }
 
 .right-nav a {
     color: rgb(231, 213, 192);
-    text-shadow:2px 2px 4px orange
+    text-shadow:2px 2px 4px orange;
+    font-size: 3rem;    
 }
 
 header nav a {
@@ -75,35 +73,7 @@ header nav a:hover {
 
 .pwd_by_Strava {
     float: right;
+    margin-top: 1rem;
+    margin-right: 1rem;
 }
 
-@media screen and (max-width: 800px) {
-    body {
-        margin-top: 3rem;
-        margin-left: 3rem;
-        margin-right: 3rem;
-        width: 88%;
-        align-items: end;
-        }
-    header {
-        background-color: rgb(255, 255, 255); /* Adjust the background color as needed */
-        background-image: url('StravaChallengesApp/images/background.jpg');
-        background-position: left;
-        margin:auto;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: right;
-        width: 95%;
-        height: 65px;
-        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.295); /* Add a shadow: offsetX offsetY blurRadius color */
-        position: fixed;
-        top: 0;
-        left: 1rem;
-        border-radius: 10px;
-    }
-    
-    header a {
-        font-size: 1.8rem;
-    }
-}
