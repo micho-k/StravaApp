@@ -49,6 +49,7 @@ Release v1.13
     Fixes: Hike (activity name to be added) 
     Fixes: Take out the left side bar - done
     Fixes: confirmation page button formatting change - done
+    Fixes: minor layout fixed - menu Bar, h1 on confirrmation page, size of connect strava button
 
 
 
