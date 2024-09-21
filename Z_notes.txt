@@ -51,7 +51,8 @@ Release v1.13
     Fixes: confirmation page button formatting change - done
     Fixes: minor layout fixed - menu Bar, h1 on confirrmation page, size of connect strava button
 
-
+Release v1.14
+    added StandUpPadding, Windsurf, Kayaking as acitvities counting as swim distance
 
 
 BACKUP of /var/www/www_y5k_fun_wsgi.py:
